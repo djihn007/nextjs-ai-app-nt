@@ -29,20 +29,20 @@ const priceFormatter = new Intl.NumberFormat("th-TH", {
 const FeaturesProduct = ({ products }: Props) => {
   return (
     <section className="mx-auto flex max-w-7xl flex-col px-6 py-14 sm:py-20">
-      <h2 className="text-pretty text-center font-medium text-4xl tracking-[-0.04em] sm:text-[2.75rem]">
-        สินค้าทั้งหมด
+      <h2 className="text-center text-2xl font-bold tracking-[-0.025em] text-[#423D38]">
+        Products
       </h2>
 
       {products.length === 0 ? (
-        <div className="mt-12 rounded-lg border border-dashed px-6 py-12 text-center text-muted-foreground">
-          ยังไม่มีสินค้าในฐานข้อมูล
+        <div className="mt-12 rounded-lg border border-dashed border-[#E3E0DD] px-6 py-12 text-center text-[#797067]">
+          No products in the database
         </div>
       ) : (
       <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
-          <article className="flex rounded-lg border bg-card px-6 py-7" key={product.id}>
+          <article className="flex rounded-lg border border-[#E3E0DD] bg-white p-6 shadow-subtle" key={product.id}>
             <div className="flex w-full flex-col">
-              <div className="relative mb-5 aspect-4/5 w-full overflow-hidden rounded-lg bg-muted sm:mb-6">
+              <div className="relative mb-5 aspect-4/5 w-full overflow-hidden rounded-md bg-[#EDEBE9] sm:mb-6">
                 <Image
                   alt={product.name}
                   className="object-cover"
@@ -53,20 +53,20 @@ const FeaturesProduct = ({ products }: Props) => {
               </div>
 
               <div className="flex items-center justify-between gap-4">
-                <span className="rounded-md bg-primary/5 px-3 py-1 text-sm font-medium text-primary dark:bg-primary/15">
+                <span className="rounded-full bg-[#F3F4F6] px-3 py-1 text-xs font-semibold uppercase tracking-[0.05em] text-[#423D38]">
                   #{product.id}
                 </span>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-xs font-semibold uppercase tracking-[0.05em] text-[#797067]">
                   {product.categoryName}
                 </span>
               </div>
-              <h3 className="mt-5 font-medium text-lg tracking-[-0.005em]">
+              <h3 className="mt-4 text-lg font-bold tracking-[-0.005em]">
                 {product.name}
               </h3>
-              <p className="mt-2 line-clamp-2 min-h-12 text-base text-foreground/70">
+              <p className="mt-2 line-clamp-2 min-h-10 text-sm leading-relaxed text-[#797067]">
                 {product.description}
               </p>
-              <p className="mt-4 text-xl font-semibold">
+              <p className="mt-4 text-xl font-bold">
                 {priceFormatter.format(product.price)}
               </p>
               <div className="mt-auto">

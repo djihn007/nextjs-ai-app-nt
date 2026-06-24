@@ -16,8 +16,8 @@ export default function LogoutButton() {
   }
   
   return (
-    <Button onClick={handleLogout}>
-      ออกจากระบบ
+    <Button onClick={handleLogout} variant="ghost-shell">
+      Sign Out
     </Button>
   );
 }

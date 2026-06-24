@@ -20,13 +20,13 @@ export const NavigationSheet = () => {
       </VisuallyHidden>
 
       <SheetTrigger asChild>
-        <Button size="icon" variant="outline">
+        <Button size="icon" variant="ghost-shell">
           <Menu />
         </Button>
       </SheetTrigger>
-      <SheetContent className="px-6 py-3">
+      <SheetContent className="px-6 py-3" showCloseButton={true}>
         <Logo />
-        <NavMenu className="mt-6 [&>div]:h-full" orientation="vertical" />
+        <NavMenu className="mt-6 flex-col items-start gap-1" />
       </SheetContent>
     </Sheet>
   );

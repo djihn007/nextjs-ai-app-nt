@@ -1,15 +1,12 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export const Logo = () => (
-  <Image 
-    src="/next.svg"
-    alt="โลโก้ Next.js"
-    width={0}
-    height={0}
-    style={{
-      width: 124,
-      height: 32
-    }}
-    loading="eager"
-  />
+  <Link href="/" className="flex items-center gap-2">
+    <span className="text-lg font-bold tracking-[-0.025em]" style={{ color: "#FE6E00" }}>
+      EVREGHEN
+    </span>
+    <span className="hidden text-sm font-medium sm:inline" style={{ color: "rgba(255,255,255,0.60)" }}>
+      Command Center
+    </span>
+  </Link>
 );

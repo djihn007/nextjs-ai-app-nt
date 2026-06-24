@@ -1,33 +1,33 @@
+"use client"
+
 import { useEffect, useState } from "react";
 
 export default function AppFooter() {
-  const [company, setCompany] = useState('COSCI'); 
+  const [company, setCompany] = useState('COSCI');
 
   const currentDate = <div>{ new Date().toLocaleDateString()}</div>;
 
   useEffect(() => {
-    console.log('จะทำครั้งแรก และทุกครั้งที่มีการ re-render ใหม่');
+    console.log('Runs on every re-render');
   });
 
   useEffect(() => {
-    console.log('จะทำครั้งแรกครั้งเดียวเท่านั้น');
+    console.log('Runs once on mount');
   }, []);
 
   useEffect(() => {
-    console.log('จะทำครั้งแรก และเฉพาะเมื่อตัวแปร company อัปเดตค่า');
+    console.log('Runs when company changes');
   }, [company]);
 
   const handleMouseOver = () => {
-    // console.log('Hi footer', company);
     setCompany('SWU');
   }
-    
+
   return (
-    <div>
-       <hr />
-       <p onMouseOver={handleMouseOver}>{company}</p>
+    <div className="border-t border-[#E3E0DD] py-6 text-center text-sm text-[#797067]">
+       <p onMouseOver={handleMouseOver} className="mb-2">{company}</p>
        {currentDate}
-       <p>codingthailand@gmail.com &copy; { new Date().getFullYear() }</p>
+       <p className="mt-2">codingthailand@gmail.com &copy; { new Date().getFullYear() }</p>
     </div>
   );
 }

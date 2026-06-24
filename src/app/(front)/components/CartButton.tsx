@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function CartButton({ product }: Props) {
-  const addItem = useCartStore((state) => state.addItem);   
+  const addItem = useCartStore((state) => state.addItem);
 
   const handleAddItem = () => {
      addItem({
@@ -18,14 +18,12 @@ export default function CartButton({ product }: Props) {
         name: product.name,
         price: product.price,
         qty: 1
-     });   
+     });
   }
 
   return (
-    <>
-        <Button className="mt-6 shadow-none" onClick={handleAddItem}>
-            หยิบใส่ตะกร้า <ChevronRight />
-        </Button> 
-    </>
+    <Button className="mt-6 shadow-none" onClick={handleAddItem}>
+      Add to Cart <ChevronRight />
+    </Button>
   );
 }

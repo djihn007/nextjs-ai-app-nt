@@ -1,11 +1,11 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
 import "../globals.css";
 import Navbar from "@/components/navbar";
+import { Toaster } from "@/components/toaster";
 
 export const metadata: Metadata = {
-  title: "ระบบ E-Commerce",
-  description: "เรียนรู้การเขียน Nex.tjs",
+  title: "Evreghen Command Center",
+  description: "Security operations interface",
 };
 
 export default function RootLayout({
@@ -14,12 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className="font-sans">
+    <html lang="en" className="font-sans">
       <body>
-        <Suspense fallback={<div className="h-16 border-b bg-background" />}>
         <Navbar />
-        </Suspense>
-        {children}
+        <main className="mx-auto max-w-[1400px] px-8">
+          {children}
+        </main>
+        <Toaster />
       </body>
     </html>
   );

@@ -1,12 +1,14 @@
-'use client'
+"use client"
+
+import { Button } from "@/components/ui/button";
 
 export default function AppButton() {
-  
-  const handleClickMe = () => alert('Hello Next.js');  
+
+  const handleClickMe = () => alert('Hello Next.js');
 
   return (
-    <button onClick={handleClickMe} >
-        Click Me!
-    </button>
+    <Button onClick={handleClickMe}>
+      Click Me!
+    </Button>
   );
 }

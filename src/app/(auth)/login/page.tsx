@@ -26,12 +26,12 @@ import { useRouter } from "next/navigation"
 const loginSchema = z.object({
   email: z
     .string()
-    .min(1, "กรุณากรอกอีเมล")
-    .email("รูปแบบอีเมลไม่ถูกต้อง"),
+    .min(1, "Email is required")
+    .email("Invalid email format"),
   password: z
     .string()
-    .min(1, "กรุณากรอกรหัสผ่าน")
-    .min(8, "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร"),
+    .min(1, "Password is required")
+    .min(8, "Password must be at least 8 characters"),
 })
 
 type LoginFormValues = z.infer<typeof loginSchema>
@@ -52,7 +52,7 @@ export default function LoginForm() {
           password: data.password,
          }, {
             onSuccess: () => {
-              alert('เข้าระบบสำเร็จ');
+              alert('Signed in successfully');
               router.replace('/');
             },
             onError: (ctx) => {
@@ -61,75 +61,104 @@ export default function LoginForm() {
          });
   }
 
+  const gridOpacities = [0.9, 0.3, 0.6, 0.6, 0.3, 0.9, 0.6, 0.3, 0.3, 0.9, 0.6, 0.9, 0.3, 0.6, 0.9, 0.3, 0.3, 0.6, 0.9, 0.6, 0.9, 0.3, 0.6, 0.3, 0.9, 0.6, 0.3, 0.9, 0.6, 0.3, 0.9, 0.6, 0.3, 0.9, 0.6, 0.9, 0.3, 0.3, 0.9, 0.6]
+
   return (
-  <div className="min-h-screen flex items-center justify-center">
-    <Card className="w-full sm:max-w-md">
-      <CardHeader>
-        <CardTitle>เข้าสู่ระบบ</CardTitle>
-        <CardDescription>
-          กรอกอีเมลและรหัสผ่านเพื่อเข้าสู่ระบบ
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form id="form-login" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
-            <Controller
-              name="email"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-login-email">อีเมล</FieldLabel>
-                  <Input
-                    {...field}
-                    id="form-login-email"
-                    type="email"
-                    aria-invalid={fieldState.invalid}
-                    placeholder="you@example.com"
-                    autoComplete="email"
-                  />
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-            <Controller
-              name="password"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-login-password">
-                    รหัสผ่าน
-                  </FieldLabel>
-                  <Input
-                    {...field}
-                    id="form-login-password"
-                    type="password"
-                    aria-invalid={fieldState.invalid}
-                    placeholder="••••••••"
-                    autoComplete="current-password"
-                  />
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-          </FieldGroup>
-        </form>
-      </CardContent>
-      <CardFooter className="flex flex-col gap-3">
-        <Button type="submit" form="form-login" className="w-full">
-          เข้าสู่ระบบ
-        </Button>
-        <p className="text-center text-sm text-muted-foreground">
-          ยังไม่มีบัญชี?{" "}
-          <a href="/register" className="underline underline-offset-4 hover:text-primary">
-            สมัครสมาชิก
-          </a>
+  <div className="flex min-h-screen">
+    <div className="hidden w-1/2 flex-col items-center justify-center bg-[#FCFAF7] p-12 lg:flex">
+      <div className="max-w-md text-center">
+        <h1 className="text-6xl font-semibold tracking-[-0.025em] leading-none text-[#423D38]">
+          EVREGHEN
+        </h1>
+        <p className="mt-4 text-lg text-[#797067]">
+          Command Center
         </p>
-      </CardFooter>
-    </Card>
+        <div className="mt-12 rounded-lg border border-[#E3E0DD] bg-white p-6">
+          <div className="grid grid-cols-5 gap-1">
+            {gridOpacities.map((opacity, i) => (
+              <div
+                key={i}
+                className="aspect-square rounded-sm bg-[#F3F4F6]"
+                style={{ opacity }}
+              />
+            ))}
+          </div>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.05em] text-[#797067]">
+            Global Telemetry Grid
+          </p>
+        </div>
+      </div>
     </div>
+
+    <div className="flex w-full items-center justify-center bg-[#FE6E00] p-8 lg:w-1/2">
+      <Card className="w-full max-w-sm border-0 shadow-raised">
+        <CardHeader>
+          <CardTitle>Sign In</CardTitle>
+          <CardDescription>
+            Enter your credentials to access the command center
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form id="form-login" onSubmit={form.handleSubmit(onSubmit)}>
+            <FieldGroup>
+              <Controller
+                name="email"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="form-login-email">Email</FieldLabel>
+                    <Input
+                      {...field}
+                      id="form-login-email"
+                      type="email"
+                      aria-invalid={fieldState.invalid}
+                      placeholder="you@example.com"
+                      autoComplete="email"
+                    />
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+              <Controller
+                name="password"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor="form-login-password">
+                      Password
+                    </FieldLabel>
+                    <Input
+                      {...field}
+                      id="form-login-password"
+                      type="password"
+                      aria-invalid={fieldState.invalid}
+                      placeholder="••••••••"
+                      autoComplete="current-password"
+                    />
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+            </FieldGroup>
+          </form>
+        </CardContent>
+        <CardFooter className="flex flex-col gap-3">
+          <Button type="submit" form="form-login" className="w-full">
+            Sign In
+          </Button>
+          <p className="text-center text-sm text-muted-foreground">
+            Don&apos;t have an account?{" "}
+            <a href="/signup" className="underline underline-offset-4 hover:text-primary">
+              Create one
+            </a>
+          </p>
+        </CardFooter>
+      </Card>
+    </div>
+  </div>
   )
 }
