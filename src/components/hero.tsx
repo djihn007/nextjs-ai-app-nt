@@ -14,7 +14,7 @@ export default function Hero() {
         </Badge>
 
         <h1 className="mx-auto mt-8 max-w-2xl text-[4.5rem] font-semibold leading-none tracking-[-0.025em] text-[#423D38] sm:text-[5rem] md:text-[6rem]">
-          EVREGHEN
+          DuiDui Center
         </h1>
 
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[#797067] sm:text-xl">

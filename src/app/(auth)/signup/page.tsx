@@ -84,7 +84,7 @@ export default function RegisterForm() {
     <div className="hidden w-1/2 flex-col items-center justify-center bg-[#FCFAF7] p-12 lg:flex">
       <div className="max-w-md text-center">
         <h1 className="text-6xl font-semibold tracking-[-0.025em] leading-none text-[#423D38]">
-          EVREGHEN
+          DuiDui Center
         </h1>
         <p className="mt-4 text-lg text-[#797067]">
           Command Center
