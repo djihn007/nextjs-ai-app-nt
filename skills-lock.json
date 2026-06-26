@@ -23,7 +23,7 @@
       "source": "djihn007/my-agent-skill-nt",
       "sourceType": "github",
       "skillPath": "skills/project-onboarding/SKILL.md",
-      "computedHash": "8213175a1ae06af206e9f700b998e9b9c9de93eec25b8f99715832c45873a652"
+      "computedHash": "3ace95df0462a2839c4d9a1ba5839d713a7ad8f144cd9dfe250f6293441ad57c"
     },
     "vercel-react-best-practices": {
       "source": "vercel-labs/agent-skills",
