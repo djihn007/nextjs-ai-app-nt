@@ -7,6 +7,18 @@
       "skillPath": "skills/frontend-design/SKILL.md",
       "computedHash": "93f53fd1c0352d3d7ec17b8f73d7351bf76f4821e55d123c9d2abc2c53ba48e4"
     },
+    "git-commit-guide": {
+      "source": "djihn007/my-agent-skill-nt",
+      "sourceType": "github",
+      "skillPath": "skills/git-commit-guide/SKILL.md",
+      "computedHash": "88f0ed32096098023f647be68d8656b2d53c44746694ba0c4cc6e92aa842a425"
+    },
+    "project-onboarding": {
+      "source": "djihn007/my-agent-skill-nt",
+      "sourceType": "github",
+      "skillPath": "skills/project-onboarding/SKILL.md",
+      "computedHash": "894f3ec330201bc52de4f70975be1452d650253bad6f291ab4efa1534af16b5d"
+    },
     "vercel-react-best-practices": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
