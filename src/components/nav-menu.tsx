@@ -8,10 +8,10 @@ import { authClient } from "@/lib/auth-client";
 
 const links = [
   { href: "/", label: "หน้าแรก" },
-  { href: "/course", label: "คอสเรียน" },
-  { href: "/about", label: "เกี่ยวกับเรา" },
-  { href: "/product", label: "สินค้า" },
-  { href: "/contact", label: "ติดต่อเรา" },
+  { href: "/course", label: "คอสเรียt" },
+  { href: "/about", label: "เกี่ยวกับเtรา" },
+  { href: "/product", label: "สินค้าt" },
+  { href: "/contact", label: "ติดต่อเราt" },
 ];
 
 export const NavMenu = ({ className, ...props }: ComponentProps<"nav">) => {
