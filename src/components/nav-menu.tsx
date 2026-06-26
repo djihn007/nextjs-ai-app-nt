@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 import { authClient } from "@/lib/auth-client";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/course", label: "Courses" },
-  { href: "/about", label: "About" },
-  { href: "/product", label: "Products" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "หน้าแรก" },
+  { href: "/course", label: "คอสเรียน" },
+  { href: "/about", label: "เกี่ยวกับเรา" },
+  { href: "/product", label: "สินค้า" },
+  { href: "/contact", label: "ติดต่อเรา" },
 ];
 
 export const NavMenu = ({ className, ...props }: ComponentProps<"nav">) => {
